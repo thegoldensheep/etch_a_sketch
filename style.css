@@ -35,10 +35,11 @@
 
 .button {
   display: inline-block;
-  width:90px;
+  font-size: 20px;
+  margin: 5px;
 }
 
 #buttons {
   text-align:center;
   margin-top:20px;
-}
+};

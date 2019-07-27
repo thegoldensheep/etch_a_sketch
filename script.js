@@ -1,4 +1,4 @@
-let currentColumnCount = 50;
+let currentColumnCount = 20;
 let currentMode = 1;
 
 function setupGrid(rowColumnCount){
@@ -6,7 +6,7 @@ function setupGrid(rowColumnCount){
   if(gridDiv == null){
     gridDiv = document.createElement('div');
   } else {
-    let pageContainer = document.getElementById('pageContainer').removeChild(gridDiv).innerHTML = '';
+    gridDiv.remove();
     gridDiv = document.createElement('div');
   }
 
@@ -53,5 +53,18 @@ function changeMode(mode){
   currentMode = mode;
 }
 
+function changeGridSize(){
+  let input;
+  while(isNaN(input)){
+    input = prompt("Please enter new grid size:");
+  }
+  console.log(input);
+  currentColumnCount=input;
+  setupGrid(currentColumnCount);
+}
+
+function resetGrid(){
+  setupGrid(currentColumnCount);
+}
 setupGrid(currentColumnCount);
 
