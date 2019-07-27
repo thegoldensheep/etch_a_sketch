@@ -1,8 +1,18 @@
 <!DOCTYPE html lang="EN"> 
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <title>Etch-a-Sketch</title>
   </head>
-  <body>
+  <body id="indexBody">
+        <div id="header">Etch A Sketch Pad</div>
+
+        <div id="buttons">
+          <button id="blackButton" class="button" onclick="changeMode(1)">Black</button>
+          <button id="rainbowButton" class="button" onclick="changeMode(2)">Rainbow</button>
+          <button id="DarkenButton" class="button" onclick="changeMode(3)">Darken</button>
+        </div>
       <script src="script.js"></script>
   </body>
 </html>
