@@ -48,6 +48,9 @@ function mouseOver(){
     let redValue = parseInt(strRGB[0])-25;
     let greenValue = parseInt(strRGB[1])-25;
     let blueValue = parseInt(strRGB[2])-25;
+    redValue = redValue < 0 ? 0 : redValue;
+    greenValue = greenValue < 0 ? 0 : greenValue;
+    blueValue = blueValue < 0 ? 0 : blueValue;
     return 'background-color: rgb('+redValue+','+greenValue+','+blueValue+');';
   }
 }
