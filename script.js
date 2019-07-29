@@ -97,6 +97,7 @@ function updatePenColor(){
   let g = hexToRgb(currentPenValue).g;
   let b = hexToRgb(currentPenValue).b;
   currentPenStyle = 'background-color: rgb('+r+','+g+','+b+')';
+  currentMode = 1;
 }
 
 setupGrid(currentColumnCount);
