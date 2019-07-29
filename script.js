@@ -5,29 +5,31 @@ function setupGrid(rowColumnCount){
   let gridDiv = document.getElementById('grid');
   if(gridDiv == null){
     gridDiv = document.createElement('div');
-  } else {
-    gridDiv.remove();
-    gridDiv = document.createElement('div');
+    document.getElementById('header').insertAdjacentElement('afterEnd',gridDiv, document.getElementById('header'));
+  } else{
+    resetGrid();
   }
 
   gridDiv.setAttribute("id", "grid");
   gridDiv.style.cssText = "--sideSize:"+rowColumnCount+";";
-  document.getElementById('header').insertAdjacentElement('afterEnd',gridDiv, document.getElementById('header'));
 
-  let i = 0;
-  while(i < rowColumnCount){
-    let j = 0;
-    while(j < rowColumnCount){
+  
+  let currentNumDivs = gridDiv.getElementsByTagName('*').length;
+  let divsToMake = rowColumnCount*rowColumnCount;
+  if(currentNumDivs < divsToMake){
+    for(i = currentNumDivs ; i < divsToMake ; i++){
       let newBlockDiv = document.createElement('div');
       newBlockDiv.setAttribute("id", "block");
       newBlockDiv.style = 'background-color: rgb(255,255,255);';
       newBlockDiv.addEventListener('mouseover', mouseOver);
       gridDiv.appendChild(newBlockDiv);
-      j++;
     }
-    i++;
+  }else{
+    gridDiv.remove();
+    setupGrid(rowColumnCount);
   }
 
+  
 }
 
 function mouseOver(){
@@ -58,13 +60,20 @@ function changeGridSize(){
   while(isNaN(input)){
     input = prompt("Please enter new grid size:");
   }
-  console.log(input);
   currentColumnCount=input;
   setupGrid(currentColumnCount);
 }
 
 function resetGrid(){
-  setupGrid(currentColumnCount);
+  let gridDiv = document.getElementById('grid');
+  let gridChildren = gridDiv.getElementsByTagName('*');
+
+  for( i = 0 ; i < gridChildren.length ; i++){
+    gridChildren[i].style = 'background-color: rgb(255,255,255);';
+  }
+
+
 }
+
 setupGrid(currentColumnCount);
 
