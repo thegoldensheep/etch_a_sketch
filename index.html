@@ -9,8 +9,8 @@
         <div id="header">Etch A Sketch Pad</div>
 
         <div id="buttons">
-          <button id="blackButton" class="button" onclick="changeMode(1)">Black</button>
-          <button id="rainbowButton" class="button" onclick="changeMode(2)">Rainbow</button>
+          <input type="color" id="penButton" class="button" onchange="updatePenColor()" />
+          <button id="rainbowButton" class="button" onclick="changeMode(2)">Random</button>
           <button id="darkenButton" class="button" onclick="changeMode(3)">Darken</button>
           <button id="resetGrid" class="button" onclick="resetGrid()">Reset</button>
           <button id="changeGridSize" class="button" onclick="changeGridSize()">Grid Size</button>
