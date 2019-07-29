@@ -25,11 +25,17 @@ function setupGrid(rowColumnCount){
       newBlockDiv.addEventListener('mouseover', mouseOver);
       gridDiv.appendChild(newBlockDiv);
     }
+  }else if(Math.abs(divsToMake - 0) > (Math.abs(currentNumDivs - divsToMake))){
+     let divsToDelete = currentNumDivs - divsToMake;
+     let gridBlocks = gridDiv.getElementsByTagName('*');
+     for(j = 0 ; j < divsToDelete ; j++){
+       gridBlocks[j].remove();
+     }
   }else{
     gridDiv.remove();
     setupGrid(rowColumnCount);
   }
-
+  
   
 }
 
