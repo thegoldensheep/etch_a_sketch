@@ -61,8 +61,17 @@ function changeGridSize(){
   while(isNaN(input)){
     input = prompt("Please enter new grid size:");
   }
-  currentColumnCount=input;
-  setupGrid(currentColumnCount);
+
+  if(input === null){
+
+  }else if(input<2){
+    alert('Grid Size must be greater than 1');
+    changeGridSize();
+  }else{
+    currentColumnCount=input;
+    setupGrid(currentColumnCount);
+  }
+
 }
 
 function resetGrid(){
